@@ -1,0 +1,30 @@
+Example lets say times is given with the following parameters:
+
+    times will be formatted as such:
+    [0, 1, 1, 1, 1]
+    [1, 0, 1, 1, 1]
+    [1, 1, 0, 1, 1]
+    [1, 1, 1, 0, 1]
+    [1, 1, 1, 1, 0]
+
+    and the time given is: 3
+
+
+Each row tells the time to get from the start, first bunny, second bunny, etc..., last bunny, then the bulk head.
+    So in the example given above for the first row it'll be:
+        start, first bunny, second bunny, third bunny, bulk head.
+There is no time to pick up the bunnies and we can arrive at the bulk head at the end time, we can revisit spots.
+
+
+Ok, so the first challenge was to figure out how the data is given to us, each row corresponds to a starting position
+
+Row 0 will correspond to the start, 1 to the 0th bunny, 2 to the 1st bunny etc... Every column is the amount of time it
+takes to get to get from that area to the next...
+
+So basic math tells us that there will be around 2^5 = 32 possible combinations, with 1000 time states which is
+32000 * 7 possible positions = 225000 possible states.
+
+Which isn't bad, we could use a tree and trim the ones that are too high for the time limit.
+
+But I think there's a better solution, given a 7x7 matrix we can calculate all possible paths, well times, and from this
+we can probably implement some already used algorithm.
